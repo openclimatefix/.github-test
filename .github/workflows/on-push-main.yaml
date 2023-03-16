@@ -1,0 +1,7 @@
+on:
+  push:
+    branches: main
+
+jobs:
+  python_docker_release:
+    uses: openclimatefix/.github/.github/workflows/python-docker-release.yml@v1

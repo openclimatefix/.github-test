@@ -1,0 +1,17 @@
+name: Run on push
+
+on:
+  push:
+
+
+jobs:
+  python-test:
+    uses: openclimatefix/.github/.github/workflows/python-test.yml@v1
+    with:
+      os_list: '["ubuntu-latest"]'
+      python-version: "['3.10']"
+      pytest_cov_dir: ocf_github_workflow_test
+
+  # This one seems broken
+  # build-docker:
+    # uses: openclimatefix/.github/.github/workflows/build-docker.yml@v1

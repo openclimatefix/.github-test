@@ -16,7 +16,8 @@ jobs:
 
   python-release:
     uses: openclimatefix/.github/.github/workflows/python-release.yml@v1
-    secrets: inherit
+    secrets:
+      token: ${{ secrets.PYPI_API_TOKEN }}
 
   # docker-release:
   #   uses: openclimatefix/.github/.github/workflows/docker-release.yml@v1

@@ -5,26 +5,26 @@ on:
     branches: main
 
 jobs:
-  python_docker_release:
-    uses: openclimatefix/.github/.github/workflows/python-docker-release.yml@v1
-    with:
-      image_base_name: ocf_github_workflow_test
-    secrets:
-      token: ${{ secrets.PYPI_API_TOKEN }}
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # python_docker_release:
+  #   uses: openclimatefix/.github/.github/workflows/python-docker-release.yml@v1
+  #   with:
+  #     image_base_name: ocf_github_workflow_test
+  #   secrets:
+  #     token: ${{ secrets.PYPI_API_TOKEN }}
+  #     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  #     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   python-release:
     uses: openclimatefix/.github/.github/workflows/python-release.yml@v1
     secrets: inherit
 
-  docker-release:
-    uses: openclimatefix/.github/.github/workflows/docker-release.yml@v1
-    with:
-      image_base_name: ocf_github_workflow_test
-    secrets:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # docker-release:
+  #   uses: openclimatefix/.github/.github/workflows/docker-release.yml@v1
+  #   with:
+  #     image_base_name: ocf_github_workflow_test
+  #   secrets:
+  #     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  #     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   # This one is broken
   # bump-version:

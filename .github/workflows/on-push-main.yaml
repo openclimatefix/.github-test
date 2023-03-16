@@ -5,3 +5,5 @@ on:
 jobs:
   python_docker_release:
     uses: openclimatefix/.github/.github/workflows/python-docker-release.yml@v1
+    with:
+      image_base_name: ocf_github_workflow_test

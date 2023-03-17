@@ -22,6 +22,7 @@ jobs:
   bump-version:
     uses: openclimatefix/.github/.github/workflows/bump-version.yml@standalone-release
 
+
   docker-release:
     needs: bump-version
     uses: openclimatefix/.github/.github/workflows/docker-release-only.yml@standalone-release

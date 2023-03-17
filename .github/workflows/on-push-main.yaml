@@ -28,7 +28,7 @@ jobs:
     with:
       image_base_name: ocf_github_workflow_test
       tag_value: ${{ needs.bump-version.outputs.new_ver }}
-    secrets: inherit
-      # DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      # DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 

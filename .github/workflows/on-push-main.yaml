@@ -20,7 +20,7 @@ jobs:
   #     token: ${{ secrets.PYPI_API_TOKEN }}
   
   bump-version:
-    uses: openclimatefix/.github/.github/workflows/bump-version.yml@v1
+    uses: openclimatefix/.github/.github/workflows/bump-version.yml@standalone-release
 
   docker-release:
     needs: bump-version

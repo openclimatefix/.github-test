@@ -2,7 +2,7 @@ name: Push on `main`
 
 on:
   push:
-    branches: main
+    branches: test-workflow
 
 jobs:
   # python_docker_release:

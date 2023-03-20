@@ -19,28 +19,28 @@ jobs:
   #   secrets:
   #     token: ${{ secrets.PYPI_API_TOKEN }}
       
-  docker-release:
-    uses: openclimatefix/.github/.github/workflows/docker-release.yml@standalone-release
-    with:
-      image_base_name: ocf_github_workflow_test
-    secrets:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # docker-release:
+  #   uses: openclimatefix/.github/.github/workflows/docker-release.yml@standalone-release
+  #   with:
+  #     image_base_name: ocf_github_workflow_test
+  #   secrets:
+  #     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  #     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   #
   # New workflows not yet merged
   #
-  # bump-version:
-  #   uses: openclimatefix/.github/.github/workflows/bump-version.yml@standalone-release
+  bump-version:
+    uses: openclimatefix/.github/.github/workflows/bump-version.yml@standalone-release
 
-  # docker-release:
-  #   needs: bump-version
-  #   uses: openclimatefix/.github/.github/workflows/docker-release-only.yml@standalone-release
-  #   with:
-  #     image_base_name: ocf_github_workflow_test
-  #     tag_value: ${{ needs.bump-version.outputs.new_ver }}
-  #     checkout_submodules: true
+  docker-release:
+    needs: bump-version
+    uses: openclimatefix/.github/.github/workflows/docker-release-only.yml@standalone-release
+    with:
+      image_base_name: ocf_github_workflow_test
+      tag_value: ${{ needs.bump-version.outputs.new_ver }}
+      checkout_submodules: true
 
-  #   secrets:
-  #     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  #     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

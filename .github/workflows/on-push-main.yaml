@@ -21,6 +21,8 @@ jobs:
       #
   docker-release:
     uses: openclimatefix/.github/.github/workflows/docker-release.yml@v1
+    with:
+      image_base_name: ocf_github_workflow_test
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

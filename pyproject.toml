@@ -1,6 +1,6 @@
 [project]
 name = "ocf-github-workflow-test"
-version = "0.1.45"
+version = "0.1.46"
 authors = [
   { name="Open Climate Fix" },
 ]

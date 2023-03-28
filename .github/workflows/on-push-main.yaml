@@ -15,13 +15,11 @@ jobs:
       # DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   python-release:
-    needs: python-docker-release
     uses: openclimatefix/.github/.github/workflows/python-release.yml@reusable-workflows-2
     secrets:
       token: ${{ secrets.PYPI_API_TOKEN }}
       
   # docker-release:
-    # needs: [python-docker-release, python-release]
     # uses: openclimatefix/.github/.github/workflows/docker-release.yml@reusable-workflows-2
     # with:
       # image_base_name: ocf_github_workflow_test

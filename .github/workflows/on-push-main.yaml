@@ -5,14 +5,14 @@ on:
     branches: main
 
 jobs:
-  python-docker-release:
-    uses: openclimatefix/.github/.github/workflows/python-docker-release.yml@reusable-workflows-2
-    with:
-      image_base_name: ocf_github_workflow_test
-    secrets:
-      token: ${{ secrets.PYPI_API_TOKEN }}
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # python-docker-release:
+    # uses: openclimatefix/.github/.github/workflows/python-docker-release.yml@reusable-workflows-2
+    # with:
+      # image_base_name: ocf_github_workflow_test
+    # secrets:
+      # token: ${{ secrets.PYPI_API_TOKEN }}
+      # DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      # DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   python-release:
     needs: python-docker-release
@@ -20,14 +20,14 @@ jobs:
     secrets:
       token: ${{ secrets.PYPI_API_TOKEN }}
       
-  docker-release:
-    needs: [python-docker-release, python-release]
-    uses: openclimatefix/.github/.github/workflows/docker-release.yml@reusable-workflows-2
-    with:
-      image_base_name: ocf_github_workflow_test
-    secrets:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # docker-release:
+    # needs: [python-docker-release, python-release]
+    # uses: openclimatefix/.github/.github/workflows/docker-release.yml@reusable-workflows-2
+    # with:
+      # image_base_name: ocf_github_workflow_test
+    # secrets:
+      # DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      # DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   #
   # New workflows not yet merged
